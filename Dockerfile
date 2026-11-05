@@ -1,6 +1,5 @@
-# Old Node 14 image plus lodash 4.17.20. Both have fixed HIGH findings,
-# so the Trivy gate in build-api-plugin.yaml fails this image on purpose.
-FROM node:14.21.3
+# Patched runtime. lodash 4.17.21 is the fixed release for the previous HIGH finding.
+FROM node:22-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY src ./src

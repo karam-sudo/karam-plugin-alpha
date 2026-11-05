@@ -1,10 +1,7 @@
-// Training fixtures for the Trivy secret scanner. Not real credentials.
-// AKIA must be followed by exactly 16 letters or digits, or the rule does not match.
-export const trainingAccessKeyId = "AKIATRAININGONLY0001";
-
-export const trainingSecretAccessKey =
-  "aws_secret_access_key=TRAININGONLYNOTAREALSECRETKEY00000000000";
+// Training fixtures for the Gitleaks secret scan. Not real credentials.
+// The 16 characters after AKIA must be A-Z or 2-7. Digits 0, 1, 8, and 9 do not match.
+export const trainingAccessKeyId = "AKIABCDFGHJKMNPQRSTU";
 
 export const trainingPrivateKeyMarker = `-----BEGIN RSA PRIVATE KEY-----
-TRAINING-ONLY-NOT-A-REAL-KEY
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 -----END RSA PRIVATE KEY-----`;

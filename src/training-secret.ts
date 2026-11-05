@@ -1,5 +1,10 @@
-// Training fixture for the image secret scan. These are the public AWS
-// documentation examples, not real credentials.
-export const trainingAccessKeyId = "AKIAIOSFODNN7EXAMPLE";
+// Training fixtures for the Trivy secret scanner. Not real credentials.
+// AKIA must be followed by exactly 16 letters or digits, or the rule does not match.
+export const trainingAccessKeyId = "AKIATRAININGONLY0001";
+
 export const trainingSecretAccessKey =
-  "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+  "aws_secret_access_key=TRAININGONLYNOTAREALSECRETKEY000000000000";
+
+export const trainingPrivateKeyMarker = `-----BEGIN RSA PRIVATE KEY-----
+TRAINING-ONLY-NOT-A-REAL-KEY
+-----END RSA PRIVATE KEY-----`;

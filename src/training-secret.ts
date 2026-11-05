@@ -3,7 +3,7 @@
 export const trainingAccessKeyId = "AKIATRAININGONLY0001";
 
 export const trainingSecretAccessKey =
-  "aws_secret_access_key=TRAININGONLYNOTAREALSECRETKEY000000000000";
+  "aws_secret_access_key=TRAININGONLYNOTAREALSECRETKEY00000000000";
 
 export const trainingPrivateKeyMarker = `-----BEGIN RSA PRIVATE KEY-----
 TRAINING-ONLY-NOT-A-REAL-KEY

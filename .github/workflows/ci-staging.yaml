@@ -1,0 +1,38 @@
+name: CI staging
+
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    branches: [staging]
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+  pull-requests: read
+  security-events: write
+  packages: write
+
+jobs:
+  quality:
+    uses: karam-sudo/karam-monorepo/.github/workflows/quality-plugin.yaml@staging
+    with:
+      plugin_name: plugin-alpha
+    secrets:
+      GH_ACTION_TOKEN: ${{ secrets.GH_ACTION_TOKEN }}
+
+  pr-title:
+    if: github.event_name == 'pull_request'
+    uses: karam-sudo/karam-monorepo/.github/workflows/pr-title-plugin.yaml@staging
+
+  build:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    needs: quality
+    uses: karam-sudo/karam-monorepo/.github/workflows/build-api-plugin.yaml@staging
+    with:
+      plugin_name: plugin-alpha
+      docker_registry: ghcr.io
+      tag: staging
+    secrets:
+      GH_ACTION_TOKEN: ${{ secrets.GH_ACTION_TOKEN }}
